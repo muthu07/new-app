@@ -1,0 +1,35 @@
+<div class="login-app">
+  <mat-card>
+    <mat-card-content>
+      <mat-grid-list cols="2" rowHeight="1:1.535">
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile>
+
+          <h2>Login</h2>
+          <form [formGroup]="loginForm" (submit)="login()">
+              <mat-form-field class="form-group float-top-default" appearance="outline">
+                  <mat-label>Username</mat-label>
+                  <span matSuffix><i class="material-icons">person</i> &nbsp;  </span>
+                  <input matInput type="text" formControlName="username" autocomplete="off" required>
+                  <mat-placeholder>Transporter</mat-placeholder>
+                  <mat-error *ngIf="uForm.username.invalid && uForm.username.touched">
+                    <span *ngIf="uForm.username.errors.required">Please enter the Username</span>
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-group float-top-default" appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <span matSuffix><i class="material-icons">lock</i> &nbsp;</span>
+                  <input matInput type="password" formControlName="password" autocomplete="off" required>
+                  <mat-placeholder>Transporter</mat-placeholder>
+                  <mat-error *ngIf="uForm.password.invalid && uForm.password.touched">
+                    <span *ngIf="uForm.password.errors.required">Please enter the Password</span>
+                  </mat-error>
+                </mat-form-field>
+            <button type="submit" [disabled]="loginForm.invalid" mat-raised-button color="primary">Login</button>
+          </form>
+          <mat-error *ngIf="validateMsg.length" >{{validateMsg}}</mat-error>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+  </mat-card>
+</div>
